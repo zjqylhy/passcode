@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<br />
+				<br />
+				<div class="keyword" id="word" onclick="show()" >2017年4月7日是我遇见你的第一天。那天是个阴天，下着阵雨，东北风3~4级。晚上8点，我按照原计划在阴暗的办公室等待视频团队负责潮汐音乐节的主持人。我正发着呆，就看到你从办公室另一端走来。那是我们的第一眼，你戴着黑色的眼镜，脸颊充盈着温柔笑意，大方地向我们打招呼。那一刻你一下子把我惊醒，因为在我短暂的人生经历中，还从未见过像你这样的人，能瞬间击中我的心。你符合我心中对于美的所有定义，我的心瞬间为你沦陷。</div><br /><br  /><br />
+
+			
+				<!-- <div class="keyword" onclick="show3">不太巧的是，由于各种“机缘巧合”，我没能在各种尝试下表达心意。大学单身的三年，我专注于提升自己，也从未想过恋爱之事。大概，我的内心一直有属于你的一块位置吧。我猜我知道，我们是 meant to be 的一对。</div><br /><br  /><br />
+				<div class="keyword" onclick="show4">时间来到疫情期间，我趁着机会大胆向你表达心意。本来也没想过有什么结果，但是你突然的热情确实让孤独惯了的我感到有些不适应。那段时间你经常说我高冷臭脸，我只想说辛苦宝贝了，辛苦你接受我从孤身一人到开始接受你的整个过程。</div><br /><br  /><br />
+				<div class="keyword" onclick="show5">5月4日是我们的初吻的日子。我发挥得比我想象的糟糕很多，很突然，也不是很浪漫。但是那一刻我突然觉得，你是我想用一生守护的那个人。
+				</div><br /><br  /><br />
+				<div class="keyword">最近几个月我们有过大大小小的争吵。我有很多问题，大部分都是因为我长时间缺乏现实生活与别人的沟通交流，导致说话风格有点冲；还有多多少少因为幼年经历导致的性格敏感、自尊心强。我一直明白这是我最大的问题，我有在努力改正它们，但无奈这种心态充斥了我生活的方方面面，所以尽管之前的错误我很少犯，但很难避免每个地方都不出错。每次伤到你的时候，也是我最难过的时候。我觉得我在实际行动上可以说是尽心尽力，但是在言语表达上还需要一个过程。如果你还留存有一丝的耐心，我希望可以跟你一直走下去，努力接近你心中的那个“完美男友”。
+				</div><br /><br  /><br /> -->
+				
+				
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						宝宝，我们已经相恋了
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Through the storm we reach the shore<br/>
+						<div class="signature">钱诚亮</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		// var together = new Date();
+		// together.setFullYear(2020, 4, 25);
+		// together.setHours(10);
+		// together.setMinutes(0);
+		// together.setSeconds(0);
+		// together.setMilliseconds(0);
+ 
+		var together = new Date('April 25, 2020 18:30:00');
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+
+		
+			// $("#code").html('');
+
+			$("#word").typewriter();
+
+		}
+
+		var a = 0;
+		function show() {
+			a = a + 1;
+			if (a == 1){
+				$(".keyword").text('不太巧的是，由于各种“机缘巧合”，我没能在各种尝试下表达心意。大学单身的三年，我专注于提升自己，也从未想过恋爱之事。大概，我的内心一直有属于你的一块位置吧。我猜我知道，我们是 meant to be 的一对。');
+			} else if (a == 2){
+				$(".keyword").text('时间来到疫情期间，我趁着机会大胆向你表达心意。本来也没想过有什么结果，但是你突然的热情确实让孤独惯了的我感到有些不适应。那段时间你经常说我高冷臭脸，我想说的是，辛苦宝贝你了。我知道，我从孤身一人不善言谈，到接纳另一个人进入的生活，对你来说会是一个漫长的过程。');
+			} else if (a == 3){
+				$(".keyword").text('5月4日是我们的初吻的日子。我发挥得比我想象的糟糕很多，很突然，也不是很浪漫。但是那一刻我突然觉得，你是我想用一生守护的那个人。');
+			} else if (a == 4){
+				$(".keyword").text('最近几个月我们有过大大小小的争吵。我有很多问题，大部分都是因为我长时间缺乏现实生活与别人的沟通交流，导致说话风格有点冲；还有多多少少因为幼年经历导致的性格敏感、自尊心强。我一直明白这是我最大的问题，我有在努力改正它们，但无奈这种心态充斥了我生活的方方面面，所以尽管之前的错误我很少犯，但很难避免每个地方都不出错。每次伤到你的时候，也是我最难过的时候。我觉得我在实际行动上可以说是尽心尽力，但是在言语表达上还需要一个过程。如果你还留存有一丝的耐心，我希望可以跟你一直走下去，努力接近你心中的那个“完美男友”。');
+			} else if (a == 5){
+				$(".keyword").text('今天是我们一起过的第一个生日。抱歉前几天晚上，我为了制造一点“小惊喜”，结果反而弄巧成拙，惹得你不开心了。对不起，以后我会更仔细考虑可行性的。除此之外，希望我为你生日安排的其他部分有让你开心到。下一个生日会更好的！');
+			} 
+			$(".keyword").typewriter();
+
+		}
+	</script>
+</body>
+</html>
