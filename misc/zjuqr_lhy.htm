@@ -162,17 +162,19 @@ if (myMonth < 10) {
     myMonthStr = "0" + myMonthStr;
 }
 var myDay = myDate.getDate();
-var myDayStr = myDate.toLocaleString();
+var myDayStr = myDay.toLocaleString();
 if (myDay < 10) {
     myDayStr = "0" + myDayStr;
 }
-var myMonth2 = (myDate + 3).getMonth() + 1;
+myDate.setDate(myDate.getDate() + 3);
+var myMonth2 = (myDate).getMonth() + 1;
 var myMonthStr2 = myMonth2.toLocaleString();
 if (myMonth2 < 10) {
     myMonthStr2 = "0" + myMonthStr2;
 }
-var myDayStr2 = (myDate + 3).toLocaleString();
-if (myDay + 3 < 10) {
+var myDay2 = myDate.getDate();
+var myDayStr2 = (myDay2).toLocaleString();
+if (myDay2 < 10) {
     myDayStr2 = "0" + myDayStr2;
 }
 document.write("有效期：2020-" + myMonthStr + "-" + myDayStr + " - 2020-" + myMonthStr2 + "-" + myDayStr2)
@@ -192,7 +194,7 @@ if (myMonth < 10) {
     myMonthStr = "0" + myMonthStr;
 }
 var myDay = myDate.getDate();
-var myDayStr = myDate.toLocaleString();
+var myDayStr = myDay.toLocaleString();
 if (myDay < 10) {
     myDayStr = "0" + myDayStr;
 }

@@ -157,8 +157,27 @@
     <div class="time"><script type="text/javascript">
         var myDate = new Date();
         var myMonth = myDate.getMonth() + 1;
+        var myMonthStr = myMonth.toLocaleString();
+        if (myMonth < 10) {
+            myMonthStr = "0" + myMonthStr;
+        }
         var myDay = myDate.getDate();
-        document.write("有效期：2020-0" + myMonth.toLocaleString() + "-" + myDay.toLocaleString() + " - 2020-0" + myMonth.toLocaleString() + "-" + (myDay+3).toLocaleString())
+        var myDayStr = myDay.toLocaleString();
+        if (myDay < 10) {
+            myDayStr = "0" + myDayStr;
+        }
+        myDate.setDate(myDate.getDate() + 3);
+        var myMonth2 = (myDate).getMonth() + 1;
+        var myMonthStr2 = myMonth2.toLocaleString();
+        if (myMonth2 < 10) {
+            myMonthStr2 = "0" + myMonthStr2;
+        }
+        var myDay2 = myDate.getDate();
+        var myDayStr2 = (myDay2).toLocaleString();
+        if (myDay2 < 10) {
+            myDayStr2 = "0" + myDayStr2;
+        }
+        document.write("有效期：2020-" + myMonthStr + "-" + myDayStr + " - 2020-" + myMonthStr2 + "-" + myDayStr2)
     </script></div>
 
 
@@ -170,8 +189,16 @@
         <div id="dateTime"><div class="time"><script type="text/javascript">
             var myDate = new Date();
             var myMonth = myDate.getMonth() + 1;
+            var myMonthStr = myMonth.toLocaleString();
+            if (myMonth < 10) {
+                myMonthStr = "0" + myMonthStr;
+            }
             var myDay = myDate.getDate();
-            document.write("同步时间：2020-0" + myMonth.toLocaleString() + "-" + myDay.toLocaleString() + " 09:40:16")
+            var myDayStr = myDay.toLocaleString();
+            if (myDay < 10) {
+                myDayStr = "0" + myDayStr;
+            }
+            document.write("同步时间：2020-" + myMonthStr + "-" + myDayStr + " 09:40:16")
         </script></div></div>
 
 
